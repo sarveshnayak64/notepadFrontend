@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Share this Note</h1>
+<div mat-dialog-content>
+    <mat-form-field class="example-form-field">
+        <input class="text-black" disabled [(ngModel)]="url" matInput type="text">
+        <button (click)="copyToClipboard()" matSuffix mat-icon-button aria-label="Clear">
+          <mat-icon>note</mat-icon>
+        </button>
+    </mat-form-field>
+    <p *ngIf="isCopied" class="text-xs">Copied to clipboard!</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()" color="primary">Close</button>
+</div>

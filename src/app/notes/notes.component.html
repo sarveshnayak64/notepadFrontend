@@ -1,0 +1,57 @@
+<div class="w-screen h-screen relative">
+
+    <p>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row class="flex justify-between">
+                <div class="flex items-center">
+                    <mat-icon class="mx-4">note</mat-icon>
+                    <span>Notepad</span>
+                </div>
+                <div>
+                    <button (click)="toggleSearch()" mat-icon-button class="example-icon favorite-icon"
+                        aria-label="Search">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                    <button (click)="logout()" mat-icon-button class="example-icon favorite-icon"
+                        aria-label="Logout">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                </div>
+            </mat-toolbar-row>
+            <mat-toolbar-row *ngIf="showSearch">
+                <mat-form-field class="w-screen">
+                    <input [(ngModel)]="searchText" (ngModelChange)="filterNotes()" matInput placeholder="Search..." type="text">
+                    <button color="primary" disabled matSuffix mat-icon-button aria-label="Clear">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </mat-form-field>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </p>
+    <p *ngIf="notes.length === 0 && !isLoading" class="w-screen flex justify-center">No Notes Found!</p>
+    <p *ngIf="isLoading" class="w-screen flex justify-center">Loading...</p>
+    <mat-list role="list">
+        <mat-list-item class="bg-white shadow-lg mb-2 rounded-xl" role="listitem" *ngFor="let note of notes;">
+            <div class="w-full flex justify-between items-center">
+                <span class="break-all w-50 overflow-hidden">{{note.subject}}</span>
+                <div>
+                    <button (click)="viewNote(note)" mat-icon-button aria-label="View" color="primary">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button (click)="editNote(note)" mat-icon-button aria-label="Edit" color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button (click)="openDeleteDialog(note.id)" mat-icon-button aria-label="Delete" color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-list-item>
+    </mat-list>
+
+    <div class="absolute bottom-5 right-5">
+        <button (click)="createNote()" mat-fab color="accent" aria-label="Example icon button with a home icon">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

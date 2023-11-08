@@ -1,0 +1,22 @@
+<div class="h-screen w-screen flex justify-center items-center bg-gray-100">
+    <div class="flex border-1 rounded-lg bg-white flex-col justify-around items-center px-6 py-4">
+      <h1 class="font-extrabold text-xl">Register</h1>
+      <form class="flex flex-col"[formGroup]="registerForm" (ngSubmit)="registerUser()">
+        <mat-form-field>
+          <mat-label>User Name</mat-label>
+          <input required type="text" matInput formControlName="userName">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input required type="email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input required type="password" matInput formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Register</button>
+        Already Registered? <a class="text-blue-800" routerLink="">login</a>
+  
+      </form>
+    </div>
+  </div>

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Delete Note</h1>
+<div mat-dialog-content>
+  <p>Do u really want to delete this note?</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()" color="primary">Close</button>
+  <button mat-button (click)="deleteNote()" cdkFocusInitial color="warn">Delete</button>
+</div>

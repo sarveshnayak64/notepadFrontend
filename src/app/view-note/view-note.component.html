@@ -1,0 +1,30 @@
+<div class="w-screen h-screen relative">
+
+    <p>
+        <mat-toolbar color="primary" class="flex justify-between items-center">
+            <div class="flex items-center">
+                <button (click)="goBack()" mat-icon-button class="example-icon" aria-label="Go Back">
+                    <mat-icon>arrow_back</mat-icon>
+                  </button>
+                <span>View Note</span>
+                <span class="example-spacer"></span>
+
+            </div>
+            <button (click)="openShareDialog()" mat-icon-button class="example-icon" aria-label="Go Back">
+                <mat-icon>share</mat-icon>
+              </button>
+        </mat-toolbar>
+    </p>
+    <div class="mx-4">
+        <p class="font-bold text-2xl">
+            {{subject}}
+        </p>
+        <p class="text-gray-800">
+            {{createdAt}}
+        </p>
+        <span class="text-lg">
+            {{body}}
+        </span>
+
+    </div>
+</div>

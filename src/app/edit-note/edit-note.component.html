@@ -1,0 +1,27 @@
+<div class="w-screen h-screen relative">
+
+    <p>
+        <mat-toolbar color="primary">
+            <button (click)="goBack()" mat-icon-button class="example-icon" aria-label="Go Back">
+                <mat-icon>arrow_back</mat-icon>
+              </button>
+            <span>Edit Note</span>
+            <span class="example-spacer"></span>
+        </mat-toolbar>
+    </p>
+    <div class="flex border-1 rounded-lg bg-white flex-col justify-around items-center px-6 py-4">
+        <form class="flex flex-col w-full" [formGroup]="noteForm" (ngSubmit)="editNote()">
+          
+            <mat-form-field>
+            <mat-label>Subject</mat-label>
+            <input required type="text" matInput formControlName="subject">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Body</mat-label>
+            <textarea required rows="10" matInput placeholder="Ex. It makes me feel..." formControlName="body"></textarea>
+          </mat-form-field>
+          <button class="max-w-[100px]" type="submit"  mat-raised-button color="primary">Save</button>
+
+        </form>
+      </div>
+</div>
